@@ -1,0 +1,9 @@
+*{
+	margin: 0;/* 一般后头会跟单位，因为是0，所以单位省略。是body-8px, */
+	text-decoration: none;
+	font-style: normal;
+	padding: 0;
+	list-style: none;
+}
+
+
