@@ -95,24 +95,29 @@
 }
 //智能效果
 {
-    const contentList=document.querySelectorAll(".zhineng");
-    contentList.forEach(function(ele){
-        content(ele);
-    });
-    function content(parent){
-        var btns=parent.querySelectorAll(".zhineng_top_wenzi_you span");
-        var cons=parent.querySelectorAll(".zhineng .jiadian_bottom");
-        for(let i=0;i<cons.length;i++){
-            btns[i].onmouseenter=function(){
-            for(let j=0;j<cons.length;j++){
-            btns[j].classList.remove(".zhineng_top_wenzi_you[span=span1]");            
-            cons[j].style.zIndex="";
-        }
-        cons[i].style.zIndex=10;        
-    }    
-    }    
+     function content(parent) {
+        const types = parent.querySelectorAll(".zhineng_top_wenzi_you span");
+        const goods = parent.querySelectorAll(".zhineng .jiadian_bottom");
+        types.forEach(function (ele, index) {
+            ele.onmouseenter = function () {
+                for (let i = 0; i<types.length; i++) {
+                    types[i].classList.remove("span1");
+                    goods[i].classList.remove("active4");
+                }
+                this.classList.add("span1");
+                goods[index].classList.add("active4");
+            }
+            // console.log(ele);
+        })
     }
+    const contentList = document.querySelectorAll(".zhineng");
+    
+    contentList.forEach(function (ele) {
+        content(ele);
+    })
 }
+ 
+
 // 为你推荐
 {
     const prev=document.querySelector(".tuijian_danpin_anniu1");
